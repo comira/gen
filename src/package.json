@@ -1,0 +1,33 @@
+{
+  "name": "gen",
+  "version": "0.1.1",
+  "description": "gen it",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint index.js && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comira/gen.git"
+  },
+  "keywords": [
+   
+  ],
+  "author": "Comira <acomira@github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/comira/gen/issues"
+  },
+  "homepage": "https://github.com/comira/gen#readme",
+  "dependencies": {
+    "@actions/core": "1.2.2",
+    "@actions/github": "2.1.0",
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "jest": "25.1.0"
+  },
+  "eslintIgnore": [
+    "*.test.js"
+  ]
+}
