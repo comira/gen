@@ -13,6 +13,6 @@ function base64_encode(file) {
     return f.toString('base64');
 }
 
-fs.readdirSync('./' + src + '/img').forEach(f => {
-    fs.writeFileSync('./' + dist + '/' + f + ".txt", base64_encode('./' + src + 'img/' + f))
+fs.readdirSync('./' + src + '/img/').forEach(f => {
+    fs.writeFileSync('./' + dist + '/' + f + ".txt", base64_encode('./' + src + '/img/' + f))
 });
