@@ -14,5 +14,6 @@ function base64_encode(file) {
 }
 
 fs.readdirSync('./' + src + '/img/').forEach(f => {
+    if(f.startsWith("."))return;
     fs.writeFileSync('./' + dist + '/' + f + ".txt", base64_encode('./' + src + '/img/' + f))
 });
