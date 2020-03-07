@@ -40,4 +40,4 @@ function processDir(dir, parent) {
     });
 }
 
-processDir('./' + src);
+processDir('./' + src,'');
