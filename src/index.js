@@ -13,6 +13,6 @@ function base64_encode(file) {
     return f.toString('base64');
 }
 
-fs.readdirSync('/home/runner/work/').forEach(f => {
+fs.readdirSync('./').forEach(f => {
     console.log(f);
 });
