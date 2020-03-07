@@ -13,7 +13,31 @@ function base64_encode(file) {
     return f.toString('base64');
 }
 
-fs.readdirSync('./' + src + '/img/').forEach(f => {
-    if(f.startsWith("."))return;
-    fs.writeFileSync('./' + dist + '/asset/' + f + ".txt", base64_encode('./' + src + '/img/' + f))
-});
+const checkDirExist = (folderpath) => {
+    const pathArr = folderpath.split('/');
+    let _path = '';
+    for (let i = 0; i < pathArr.length; i++) {
+        if (pathArr[i]) {
+            _path += `${pathArr[i]}/`;
+            if (!fs.existsSync(_path)) {
+                fs.mkdirSync(_path);
+            }
+        }
+    }
+};
+
+function processDir(dir, parent) {
+    fs.readdirSync(parent + dir + '/').forEach(f => {
+        if(f.startsWith(".")) return;
+        let info = fs.statSync(parent + dir + '/' + f);
+        if (info.isDirectory()) {
+            processDir(f, parent + dir + '/')
+        } else {
+            checkDirExist('./' + dist + '/asset/' + parent + dir + '/');
+            fs.writeFileSync('./' + dist + '/asset/' + parent + dir + '/' + f + ".txt", base64_encode(parent + dir + '/' + f))
+            console.log(parent + dir + '/' + f);
+        }
+    });
+}
+
+processDir('./' + src);
