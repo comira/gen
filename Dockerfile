@@ -2,6 +2,8 @@ FROM node:10.11.0-alpine
 
 COPY ./src /action
 
+RUN chmod +x /action/entrypoint.sh
+
 ENTRYPOINT ["/action/entrypoint.sh"]
 
 LABEL "com.github.actions.name"="NodeJS Action Template"
